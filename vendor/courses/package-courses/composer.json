@@ -1,0 +1,21 @@
+{
+    "name": "courses/package-courses",
+    "description": "This is package-courses(project HK4 laravel)",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hoanghuulong",
+            "email": "hoanghuulong.krn@gamil.com"
+        }
+    ],
+    "require": {
+        "laravelcollective/html" : "6.2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Courses\\Courses\\": "/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,14 @@
+{
+    "name": "courses/package-courses",
+    "description": "This is package courses",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hoanghuulong",
+            "email": "hoanghuulong.krn@gamil.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
