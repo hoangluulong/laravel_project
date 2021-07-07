@@ -22,6 +22,8 @@
         <div class="form-group mx-sm-3 mb-2">
             <select  name="search_id">
             <option value="class_name" selected>class name</option>
+            <option value="course_name">course name</option>
+            <option value="faculty_name">faculty name</option>
                 <option value="teacher_id">teacher id</option>
                 <option value="course_id">course id</option>
                 <option value="faculty_id">faculty id</option>

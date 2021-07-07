@@ -21,6 +21,16 @@
                 @else
                     <option value="class_id">class id</option>
                 @endif
+                @if ($table == "class_name")
+                    <option value="class_name" selected>class name</option>
+                @else
+                    <option value="class_name">class name</option>
+                @endif
+                @if ($table == "user_name")
+                    <option value="user_name" selected>user name</option>
+                @else
+                    <option value="user_name">user name</option>
+                @endif
             </select>
             <input type="text" class="form-control" id="search" name='search' placeholder="search course" value="{{ $value }}">
         </div>

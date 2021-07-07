@@ -16,6 +16,16 @@
         <div class="form-group mx-sm-3 mb-2">
         <select  name="search_id">
                 <option value="class_name">class name</option>
+                @if ($table == "course_name")
+                    <option value="course_name" selected>course name</option>
+                @else
+                    <option value="course_name">course name</option>
+                @endif
+                @if ($table == "faculty_name")
+                    <option value="faculty_name" selected>faculty name</option>
+                @else
+                    <option value="faculty_name">faculty name</option>
+                @endif
                 @if ($table == "teacher_id")
                     <option value="teacher_id" selected>teacher id</option>
                 @else

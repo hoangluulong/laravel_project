@@ -23,7 +23,26 @@ class classuser extends Model
     }
 
     public function searchClassUserID($class_name, $table_name){
-        $classuser = $this -> where($table_name ,$class_name)->get();
+        if($table_name == 'class_id' || $table_name == 'user_id'){
+            $classuser = $this -> where($table_name ,$class_name)->get();
+        }
+        else{
+            $table = "";
+            $colum = "";
+            if($table_name === "user_name"){
+                $table = "users";
+                $colum = "user_id";
+            }else{
+                $table = "classes";
+                $colum = "class_id";
+            }
+            
+            $classuser = $this ->join($table, 'classes_users.'.$colum, '=', $table.'.'.$colum)
+                                    ->select('classes_users.*')
+                                    ->where($table.'.'.$table_name, 'like', '%'.$class_name.'%')
+                                    ->get();
+        }
+      
         return $classuser;
     }
 }

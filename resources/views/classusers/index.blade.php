@@ -23,6 +23,8 @@
             <select  name="search_id">
             <option value="user_id" selected>user id</option>
                 <option value="class_id">class id</option>
+                <option value="class_name">class name</option>
+                <option value="user_name">user name</option>
             </select>
             <input type="text" class="form-control" name="search" id="search" placeholder="search course">
         </div>

@@ -30,12 +30,29 @@ class Classes extends Model
         return $class;
     }
 
-    public function searchClasses($class_name, $table_name){
-        $class = $this -> where($table_name ,$class_name)->get();
-        return $class;
-    }
     public function searchClassesName($class_name, $table_name){
-        $class = $this -> where($table_name, 'like', '%'.$class_name.'%')->get();
+
+        if($table_name == 'course_id'  || $table_name == 'faculty_id' || $table_name == 'teacher_id'){
+            $class = $this -> where($table_name ,$class_name)->get();
+        }
+        else if($table_name == 'class_name'){
+            $class = $this -> where($table_name, 'like', '%'.$class_name.'%')->get();  
+        }
+        else{
+            $table = "";
+            $colum = "";
+            if($table_name === "course_name"){
+                $table = "courses";
+                $colum = "course_id";
+            }else{
+                $table = "faculties";
+                $colum = "faculty_id";
+            }
+            $class =  $this ->join($table, 'classes.'.$colum, '=', $table.'.'.$colum)
+            ->select('classes.*')
+            ->where($table.'.'.$table_name, 'like', '%'.$class_name.'%')
+            ->get();
+        }
         return $class;
     }
 }

@@ -73,13 +73,7 @@ class ClassesController extends Controller
     public function show(Request  $request)
     {
         $classModel = new Classes();
-        if($request->search_id == 'class_name'){
             $searchClasses = $classModel->searchClassesName($request->search, $request->search_id);
-        }
-        else{
-            $searchClasses = $classModel->searchClasses($request->search, $request->search_id);
-        }
-      
         $size = count($searchClasses);
         return view('classes.search', ['classes' => $searchClasses, 'table'=>$request->search_id, 'value' => $request->search, 'size'=>$size])->with('i', (request()->input('page', 1) - 1) * 5);
     }
