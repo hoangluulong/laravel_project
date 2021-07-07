@@ -29,3 +29,5 @@ Route::resource('faculties', FacultyController::class);
 Route::resource('subjects', SubjectController::class);
 Route::resource('coursesubjects', CourseSubjectController::class);
 Route::get('courses/search', [CourseController::class, 'search'])->name('search');
+Route::get('subjects/search', [SubjectController::class, 'search'])->name('search');
+Route::get('coursesubjects/search', [CourseSubjectController::class, 'search'])->name('search');

@@ -62,8 +62,7 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Request  $request)
-    {
-        
+    { 
         $courseModel = new Course();
         $searchCourseName = $courseModel->searchCourseName($request->search, $request->search_id);
         $size = count($searchCourseName);

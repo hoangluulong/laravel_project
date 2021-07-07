@@ -11,7 +11,6 @@
         </div>
     </div>
    <!-- 'course_name', 'course_semester', 'course_year', 'status' -->
-    Search course
     <form class="form-inline" action="{{ route('search') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
         <select  name="search_id">
@@ -68,6 +67,6 @@
             @endforeach
         </table>
         @else
-            Không tìm thấy kết quả nào tìm thấy với từ khóa "{{$value}}"
+            Không tìm thấy kết quả nào với từ khóa "{{$value}}"
         @endif
 @endsection

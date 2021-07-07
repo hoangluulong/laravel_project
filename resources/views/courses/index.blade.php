@@ -17,7 +17,6 @@
         </div>
     @endif
    <!-- 'course_name', 'course_semester', 'course_year', 'status' -->
-    Search course
     <form class="form-inline" action="{{ route('search') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
             <select  name="search_id">

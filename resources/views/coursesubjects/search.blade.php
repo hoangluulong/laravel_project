@@ -7,29 +7,37 @@
                 <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('coursesubjects.create') }}"> Create New Course</a>
+                <a class="btn btn-primary" href="{{ route('courses.index') }}"> Back</a>
             </div>
         </div>
     </div>
-   
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
 
     <form class="form-inline" action="{{ route('search') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
             <select  name="search_id">
-                <option value="course_id" selected>course_id</option>
-                <option value="subject_id">subject_id</option>
-                <option value="course_name">Course</option>
-                <option value="course_semester">Subject</option>
+                <option value="course_id">course_id</option>
+                @if($table === "subject_id")
+                    <option value="subject_id" selected>subject_id</option>
+                @else
+                    <option value="subject_id">subject_id</option>
+                @endif
+                @if($table === "course_name")
+                    <option value="course_name" selected>Course</option>
+                @else
+                    <option value="course_name">Course</option>
+                @endif
+                @if($table === "subject_name")
+                    <option value="subject_name" selected>Subject</option>
+                @else
+                    <option value="subject_name">Subject</option>
+                @endif
             </select>
-            <input type="text" class="form-control" name="search" id="search" placeholder="search course">
+            <input type="text" class="form-control" name="search" id="search" placeholder="search course" value="{{ $value }}">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
+    @if ($size != 0)
+        có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
     <table class="table table-bordered">
         <tr>
             <th>No</th>
@@ -59,7 +67,8 @@
         </tr>
         @endforeach
     </table>
-  
-    {!! $coursesubjects->links() !!}
+    @else
+            Không tìm thấy kết quả nào với từ khóa "{{$value}}"
+        @endif
       
 @endsection
