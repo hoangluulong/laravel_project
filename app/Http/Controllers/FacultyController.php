@@ -57,9 +57,12 @@ class FacultyController extends Controller
      * @param  \App\Faculty  $faculty
      * @return \Illuminate\Http\Response
      */
-    public function show(Faculty $faculty)
+    public function show(Request $request)
     {
-        return view('faculties.show',compact('faculty'));
+        $facultyModel = new Faculty();
+        $searchFacultyName = $facultyModel->searchFacultyName($request->search);
+        $size = count($searchFacultyName);
+        return view('faculties.search', ['faculties' => $searchFacultyName, 'value' => $request->search, 'size'=>$size])->with('i', (request()->input('page', 1) - 1) * 5);
     } 
      
     /**

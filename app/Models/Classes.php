@@ -29,4 +29,13 @@ class Classes extends Model
         $class = $this->all();
         return $class;
     }
+
+    public function searchClasses($class_name, $table_name){
+        $class = $this -> where($table_name ,$class_name)->get();
+        return $class;
+    }
+    public function searchClassesName($class_name, $table_name){
+        $class = $this -> where($table_name, 'like', '%'.$class_name.'%')->get();
+        return $class;
+    }
 }

@@ -61,10 +61,14 @@ class ClassUserController extends Controller
      * @param  \App\Models\ClassUser  $classuser
      * @return \Illuminate\Http\Response
      */
-    public function show(ClassUser $classuser)
+    public function show(Request $request)
     {
-        return view('classusers.show',compact('classuser'));
+        $classuserModel = new ClassUser();
+        $searchClassUser = $classuserModel->searchClassUserID($request->search, $request->search_id);
+        $size = count($searchClassUser);
+        return view('classusers.search', ['classusers' => $searchClassUser, 'table'=>$request->search_id, 'value' => $request->search, 'size'=>$size])->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 
     /**
      * Show the form for editing the specified resource.

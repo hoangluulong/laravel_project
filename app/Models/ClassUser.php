@@ -21,4 +21,9 @@ class classuser extends Model
     public function manyUser(){
         return $this->hasMany(User::class, 'user_id', 'user_id');
     }
+
+    public function searchClassUserID($class_name, $table_name){
+        $classuser = $this -> where($table_name ,$class_name)->get();
+        return $classuser;
+    }
 }

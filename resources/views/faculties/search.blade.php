@@ -1,30 +1,26 @@
 @extends('layout')
- 
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
+                <h2>List course</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('faculties.create') }}"> Create New Faculty</a>
+                <a class="btn btn-primary" href="{{ route('faculties.index') }}"> Back</a>
             </div>
         </div>
     </div>
-   
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
+   <!-- 'course_name', 'course_semester', 'course_year', 'status' -->
+    Search class
     <form class="form-inline" action="{{ route('searchfaculties') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form-control" name="search" id="search" placeholder="search course">
+            <input type="text" class="form-control" id="search" name='search' placeholder="search course" value="{{ $value }}">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
-   <!-- 'faculty_name', 'faculty_semester', 'faculty_year', 'status' -->
-    <table class="table table-bordered">
+    @if ($size != 0)
+        Có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
+        <table class="table table-bordered">
         <tr>
             <th>No</th>
             <th>faculty_name</th>
@@ -51,7 +47,7 @@
         </tr>
         @endforeach
     </table>
-  
-    {!! $faculties->links() !!}
-      
+        @else
+            Không tìm thấy kết quả nào với từ khóa "{{$value}}"
+        @endif
 @endsection

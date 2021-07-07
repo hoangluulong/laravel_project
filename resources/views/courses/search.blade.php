@@ -19,7 +19,7 @@
                 @if ($table == "course_semester")
                     <option value="course_semester" selected>course semester</option>
                 @else
-                    <option value="course_semester">course semester</option>s
+                    <option value="course_semester">course semester</option>
                 @endif
 
                 @if ($table == "course_year")
@@ -33,7 +33,7 @@
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
     @if ($size != 0)
-        có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
+        Có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
         <table class="table table-bordered">
             <tr>
                 <th>No</th>
@@ -68,6 +68,6 @@
             @endforeach
         </table>
         @else
-            Không tìm thấy kết quả nào tìm thấy với từ khóa "{{$value}}"
+            Không tìm thấy kết quả nào với từ khóa "{{$value}}"
         @endif
 @endsection
