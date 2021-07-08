@@ -5,22 +5,22 @@
             <div class="pull-left">
                 <h2>List course</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('faculties.index') }}"> Back</a>
-            </div>
         </div>
     </div>
-   <!-- 'course_name', 'course_semester', 'course_year', 'status' -->
-    Search class
+<div class="menu-search">
+    <a class="btn btn-primary" href="{{ route('faculties.index') }}"> Back</a>
     <form class="form-inline" action="{{ route('searchfaculties') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
             <input type="text" class="form-control" id="search" name='search' placeholder="search course" value="{{ $value }}">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
+</div>
+
+
     @if ($size != 0)
         Có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
-        <table class="table table-bordered">
+        <table class="table table-hover">
         <tr>
             <th>No</th>
             <th>faculty_name</th>

@@ -20,4 +20,9 @@ class Subject extends Model
         $subject = $this->all();
         return $subject;
     }
+
+    public function searchSubjectName($subject_name){
+        $subject = $this -> where('subject_name', 'like', '%'.$subject_name.'%')->get();
+        return $subject;
+    }
 }

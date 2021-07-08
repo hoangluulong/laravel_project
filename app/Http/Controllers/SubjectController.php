@@ -54,9 +54,12 @@ class SubjectController extends Controller
      * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function show(Request $request)
     {
-        return view('subjects.show',compact('subject'));
+        $subjectModel = new Subject();
+        $search_subject = $subjectModel->searchSubjectName($request->search);
+        $size = count($search_subject);
+        return view('subjects.search', ['subjects' => $search_subject, 'value' => $request->search, 'size' => $size])->with('i',(request()->input('page', 1) - 1) * 5);
     }
 
     /**

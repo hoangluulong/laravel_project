@@ -7,13 +7,11 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Product</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('classes.index') }}"> Back</a>
+                <h2>Edit Class</h2>
             </div>
         </div>
     </div>
+    <hr>
    
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -47,7 +45,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Course name:</strong>
-                <select  name="course_id">
+                <select  name="course_id" class="selected">
                     @foreach ($courses as $course)
                         @if ($course->course_id == $class->course_id)
                             <option value="{{ $course->course_id }}" selected>{{ $course->course_name}}</option>
@@ -61,7 +59,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Faculty name:</strong>
-                <select  name="faculty_id">
+                <select  name="faculty_id" class="selected">
                     @foreach ($faculties as $faculty)
                         @if ($faculty->faculty_id == $class->faculty_id)
                             <option value="{{ $faculty->faculty_id }}" selected>{{ $faculty->faculty_name}}</option>
@@ -79,7 +77,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Edit class</button>
         </div>
     </div>
    

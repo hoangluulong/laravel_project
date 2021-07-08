@@ -6,12 +6,10 @@
             <div class="pull-left">
                 <h2>Edit Courses</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('subjects.index') }}"> Back</a>
-            </div>
         </div>
     </div>
    
+    <hr>
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -41,7 +39,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Edit subject</button>
             </div>
         </div>
    

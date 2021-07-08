@@ -4,10 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>List lop hoc</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('classes.create') }}"> Create New Product</a>
+                <h2>List class</h2>
             </div>
         </div>
     </div>
@@ -17,10 +14,12 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    search class
+    
+<div class="menu-search">
+    <a class="btn btn-success" href="{{ route('classes.create') }}"> Create New Class</a>
     <form class="form-inline" action="{{ route('searchclass') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
-            <select  name="search_id">
+            <select  name="search_id" id="search_id">
             <option value="class_name" selected>class name</option>
             <option value="course_name">course name</option>
             <option value="faculty_name">faculty name</option>
@@ -31,9 +30,11 @@
             <input type="text" class="form-control" name="search" id="search" placeholder="search course">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
+
     </form>
+</div>
    
-    <table class="table table-bordered">
+    <table class="table table-hover">
         <tr>
             <th>No</th>
             <th>Class_Name</th>
@@ -42,7 +43,7 @@
             <th>Course_id</th>
             <th>Course_name</th>
             <th>Faculty_name</th>
-            <th width="280px">Action</th>
+            <th>Action</th>
         </tr>
         @foreach ($classes as $class)
         <tr>

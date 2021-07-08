@@ -1,0 +1,62 @@
+.pull-left h2{
+    text-align: center;
+    color: rgb(70, 85, 223);
+    font-weight: 900;
+    font-size: didot;
+  }
+
+/* search */
+.menu-search {
+    padding-top: 20px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .menu-search a {
+    margin-left: 20%;
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .btn-success{
+      background-color: rgb(81, 229, 255);
+  }
+  
+  .menu-search a:hover {
+    background-color: rgb(38, 177, 147);
+  }
+
+  #search_id{
+      padding: 9px;
+  }
+
+  /* table */
+  .table{
+      border-radius: 10px;
+      background-color: rgb(251, 252, 244);
+  }
+
+/* page */
+.pagination{
+    margin-left: 35%;
+}
+
+/* selected edit+creates*/
+.selected{
+    padding: 0 20px 0 20px;
+    border-color: deepskyblue;
+    border-radius: 3px;
+}
+/* footer */
+footer{
+  margin-top: 50px;
+  text-align: center;
+}
+
+footer h4, h5{
+  padding-top: 50px;
+  color: rgb(121, 121, 121);
+}

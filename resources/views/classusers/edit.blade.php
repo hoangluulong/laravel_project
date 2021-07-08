@@ -6,12 +6,9 @@
             <div class="pull-left">
                 <h2>Edit classuser</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('classuser.index') }}">Back</a>
-            </div>
         </div>
     </div>
-   
+   <hr>
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -33,8 +30,8 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>User id</strong>
-                <select  name="user_id">
+                <strong>User name: </strong>
+                <select  name="user_id" class="selected">
                         
                         @foreach ($users as $user)
                             @if ($user->user_id == $classuser->user_id)
@@ -48,8 +45,8 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Class name</strong>
-                <select  name="class_id">
+                <strong>Class name: </strong>
+                <select  name="class_id" class="selected">
                         
                         @foreach ($classes as $class)
                             @if ($class->class_id == $classuser->class_id)
@@ -68,7 +65,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Edit classuser</button>
         </div>
     </div>
    

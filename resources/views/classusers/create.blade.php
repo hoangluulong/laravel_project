@@ -6,12 +6,9 @@
         <div class="pull-left">
             <h2>Add New Class</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('classuser.index') }}">Back</a>
-        </div>
     </div>
 </div>
-   
+   <hr>
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -29,9 +26,9 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>user name</strong>
-                <select name="user_id">
-                        <option selected>All users</option>
+                <strong>User name</strong>
+                <select name="user_id" class="selected">
+                        <option selected></option>
                     @foreach ($users as $user)
                         <option value="{{ $user->user_id }}">{{ $user->user_name}}</option>
                     @endforeach
@@ -40,9 +37,9 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>class name</strong>
-                <select name="class_id">
-                        <option selected>All class</option>
+                <strong>Class name</strong>
+                <select name="class_id" class="selected">
+                        <option selected></option>
                     @foreach ($classes as $class)
                         <option value="{{ $class->user_id }}">{{ $class->class_name}}</option>
                     @endforeach
@@ -56,7 +53,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create</button>
         </div>
     </div>
    

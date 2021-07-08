@@ -4,14 +4,11 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Add New Subject</h2>
-        </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('coursesubjects.index') }}"> Back</a>
+            <h2>Add course_subject</h2>
         </div>
     </div>
 </div>
-   
+   <hr>
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -29,7 +26,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Course name:</strong>
-                <select  name="course_id">
+                <select  name="course_id" class="selected">
                     <option selected>Choose course</option>
                     @foreach ($courses as $course)
                         <option value="{{ $course->course_id }}">{{ $course->course_name}}</option>
@@ -41,7 +38,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Subject name:</strong>
-                <select  name="subject_id">
+                <select  name="subject_id" class="selected">
                     <option selected>Choose subject</option>
                     @foreach ($subjects as $subject)
                         <option value="{{ $subject->subject_id }}">{{ $subject->subject_name}}</option>
@@ -58,7 +55,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create</button>
         </div>
     </div>
    

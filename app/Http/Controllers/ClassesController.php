@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Classes;
 use App\Models\Faculty;
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClassesController extends Controller
@@ -35,11 +36,12 @@ class ClassesController extends Controller
     {
         $facultyModel = new Faculty();
         $courseModel = new Course();
+        $teacherModel = new User();
 
         $faculties = $facultyModel->AllFaculty();
         $courses = $courseModel->AllCourse();
-
-        return view('classes.create', ['faculties' => $faculties, 'courses' => $courses]);
+        $teacher = $teacherModel->getTeacher();
+        return view('classes.create', ['faculties' => $faculties, 'courses' => $courses,'teachers' => $teacher]);
     }
 
     /**
@@ -88,6 +90,11 @@ class ClassesController extends Controller
     {
         $facultyModel = new Faculty();
         $courseModel = new Course();
+        $teacherModel = new User();
+
+        $teachers = $teacherModel->getTeacher();
+        $teacherID = $class->teacher_id;
+        $teacherName = "";
 
         $faculties = $facultyModel->AllFaculty();
         $facultyID = $class->faculty_id;
@@ -96,6 +103,12 @@ class ClassesController extends Controller
         $courses = $courseModel->AllCourse();
         $courseID = $class->course_id;
         $courseName = "";
+
+        foreach($teachers as $value){
+            if($value->user_id == $teacherID){
+                $teacherName = $value->user_name;
+            }
+        }
 
         foreach ($faculties as $value) {
             if($value->faculty_id == $facultyID){
@@ -108,7 +121,7 @@ class ClassesController extends Controller
                 $courseName = $value->course_name;
             }
         }
-        return view('Classes.edit',['class' => $class, 'faculties' => $faculties, 'facultyName' => $facultyName, 'courses' => $courses, 'courseName' => $courseName]);
+        return view('Classes.edit',['class' => $class, 'faculties' => $faculties, 'facultyName' => $facultyName, 'courses' => $courses, 'courseName' => $courseName, 'teachers' => $teachers]);
 
         //['categories' => $categories]
     }

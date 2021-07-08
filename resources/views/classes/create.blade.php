@@ -6,11 +6,9 @@
         <div class="pull-left">
             <h2>Add New Class</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('classes.index') }}"> Back</a>
-        </div>
     </div>
 </div>
+<hr>
    
 @if ($errors->any())
     <div class="alert alert-danger">
@@ -35,14 +33,19 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Teacher id:</strong>
-                <input type="text" name="teacher_id" class="form-control" placeholder="teacher id">
+                <strong>Teacher name:</strong>
+                <select  name="teacher_id" class="selected">
+                        <option selected></option>
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher->user_id }}">{{ $teacher->user_name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Course name:</strong>
-                <select  name="course_id">
+                <select  name="course_id" class="selected">
                         <option selected></option>
                     @foreach ($courses as $course)
                         <option value="{{ $course->course_id }}">{{ $course->course_name}}</option>
@@ -53,7 +56,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Faculty name:</strong>
-                <select  name="faculty_id">
+                <select  name="faculty_id" class="selected">
                         <option selected></option>
                     @foreach ($faculties as $faculty)
                         <option value="{{ $faculty->faculty_id }}">{{ $faculty->faculty_name}}</option>
@@ -68,7 +71,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create class</button>
         </div>
     </div>
    

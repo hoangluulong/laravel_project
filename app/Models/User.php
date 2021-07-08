@@ -23,4 +23,11 @@ class User extends Authenticatable
         $user = $this->all();
         return $user;
     }
+    public function getTeacher(){
+        $teacher = $this->join('user_types', 'users.usertype_id', '=', 'user_types.usertype_id')
+        ->select('users.*')
+        ->where('user_types.usertype_name', '=', 'Teacher')
+        ->get();
+        return $teacher;
+    }
 }

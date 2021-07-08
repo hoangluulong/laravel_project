@@ -5,9 +5,6 @@
             <div class="pull-left">
                 <h2>List course</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('courses.create') }}"> Create New Course</a>
-            </div>
         </div>
     </div>
    
@@ -16,11 +13,12 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   <!-- 'course_name', 'course_semester', 'course_year', 'status' -->
-    Search course
+
+<div class="menu-search">
+    <a class="btn btn-success" href="{{ route('courses.create') }}"> Create New Course</a>
     <form class="form-inline" action="{{ route('search') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
-            <select  name="search_id">
+            <select  name="search_id" id="search_id">
                 <option value="course_name" selected>course name</option>
                 <option value="course_semester">course semester</option>
                 <option value="course_year">course year</option>
@@ -29,7 +27,9 @@
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
-    <table class="table table-bordered">
+</div>
+
+    <table class="table table-hover">
         <tr>
             <th>No</th>
             <th>course_name</th>

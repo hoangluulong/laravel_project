@@ -32,3 +32,5 @@ Route::get('courses/search', [CourseController::class, 'search'])->name('search'
 Route::get('classes/search', [ClassesController::class, 'search'])->name('searchclass');
 Route::get('faculties/search', [FacultyController::class, 'search'])->name('searchfaculties');
 Route::get('classuser/search', [ClassUserController::class, 'search'])->name('searchclassuser');
+Route::get('coursesubjects/search', [CourseSubjectController::class, 'search'])->name('searchcoursesubjects');
+Route::get('subjects/search', [SubjectController::class, 'search'])->name('searchsubject');

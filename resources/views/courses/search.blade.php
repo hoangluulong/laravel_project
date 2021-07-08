@@ -5,16 +5,13 @@
             <div class="pull-left">
                 <h2>List course</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('courses.index') }}"> Back</a>
-            </div>
         </div>
     </div>
-   <!-- 'course_name', 'course_semester', 'course_year', 'status' -->
-    Search course
+<div class="menu-search">
+    <a class="btn btn-primary" href="{{ route('courses.index') }}"> Back</a>
     <form class="form-inline" action="{{ route('search') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
-        <select  name="search_id">
+        <select  name="search_id" id="search_id">
                 <option value="course_name">course name</option>
                 @if ($table == "course_semester")
                     <option value="course_semester" selected>course semester</option>
@@ -32,9 +29,11 @@
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
+</div>
+
     @if ($size != 0)
         Có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
-        <table class="table table-bordered">
+        <table class="table table-hover">
             <tr>
                 <th>No</th>
                 <th>course_name</th>

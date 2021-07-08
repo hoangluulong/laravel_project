@@ -5,26 +5,21 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>List subject</h2>
-            </div>  
+            </div>
+            <div class="pull-right">
+            <a class="btn btn-primary" href="{{ route('subjects.index') }}"> Back</a>
+            </div>
         </div>
     </div>
-   
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
 
-<div class="menu-search">
-    <a class="btn btn-success" href="{{ route('subjects.create') }}"> Create New Course</a>
     <form class="form-inline" action="{{ route('searchsubject') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form-control" name="search" id="search" placeholder="search course">
+            <input type="text" class="form-control" name="search" id="search" placeholder="search course" value="{{$value}}">
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
-</div>
-
+    @if ($size != 0)
+        có {{$size}} kết quả tìm kiếm với từ khóa "{{$value}}"
     <table class="table table-hover">
         <tr>
             <th>No</th>
@@ -32,6 +27,7 @@
             <th>status</th>
             <th width="280px">Action</th>
         </tr>
+
         @foreach ($subjects as $subject)
         <tr>
             <td>{{ ++$i }}</td>
@@ -52,7 +48,7 @@
         </tr>
         @endforeach
     </table>
-  
-    {!! $subjects->links() !!}
-      
+    @else
+            Không tìm thấy kết quả nào với từ khóa "{{$value}}"
+    @endif
 @endsection

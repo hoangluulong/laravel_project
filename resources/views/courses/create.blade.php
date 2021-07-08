@@ -6,12 +6,10 @@
         <div class="pull-left">
             <h2>Add New Courses</h2>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('courses.index') }}"> Back</a>
-        </div>
     </div>
 </div>
    
+<hr>
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -41,7 +39,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                     <strong>Course year:</strong>
-                    <select  name="course_year">
+                    <select  name="course_year" class="selected">
                         @foreach ($years as $year)
                             <option value="{{ $year }}">{{ $year }}</option>
                         @endforeach
@@ -55,7 +53,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Create course</button>
         </div>
     </div>
    

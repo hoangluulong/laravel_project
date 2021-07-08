@@ -4,10 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>List lop hoc</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('classuser.create') }}"> Create New class_user</a>
+                <h2>List class_users</h2>
             </div>
         </div>
     </div>
@@ -18,9 +15,11 @@
         </div>
     @endif
 
+<div class="menu-search">
+    <a class="btn btn-success" href="{{ route('classuser.create') }}"> Create New class_user</a>
     <form class="form-inline" action="{{ route('searchclassuser') }}" method="get">
         <div class="form-group mx-sm-3 mb-2">
-            <select  name="search_id">
+            <select  name="search_id" id="search_id">
             <option value="user_id" selected>user id</option>
                 <option value="class_id">class id</option>
                 <option value="class_name">class name</option>
@@ -30,8 +29,9 @@
         </div>
         <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
+</div>
    
-    <table class="table table-bordered">
+    <table class="table table-hover">
         <tr>
             <th>No</th>
             <th>class_id</th>

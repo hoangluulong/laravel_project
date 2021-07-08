@@ -19,7 +19,7 @@ class CourseSubjectController extends Controller
         //$coursesubjects = CourseSubject::latest()->paginate(5);
         $obj = new CourseSubject();
         $coursesubjects = $obj->paginate(5);
-       
+
         return view('coursesubjects.index',compact('coursesubjects'))->with('i',(request()->input('page', 1) - 1) * 5);
     }
 
@@ -65,9 +65,13 @@ class CourseSubjectController extends Controller
      * @param  \App\Models\CourseSubject  $courseSubject
      * @return \Illuminate\Http\Response
      */
-    public function show(CourseSubject $coursesubject)
+    public function show(Request $request)
     {
-        return view('coursesubjects.show',compact('coursesubject'));
+        $courseSubjectModel = new CourseSubject();
+        $course_subject = $courseSubjectModel->searchCourseSubject($request->search, $request->search_id);
+        $size = count($course_subject);
+        return view('coursesubjects.search',['coursesubjects' => $course_subject, 'size' => $size, 'value' => $request->search, 'table' => $request->search_id])
+            ->with('i',(request()->input('page', 1) - 1) * 5);
     }
 
     /**
