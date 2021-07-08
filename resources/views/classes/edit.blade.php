@@ -41,7 +41,15 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Teacher id:</strong>
-                <input type="text" name="teacher_id" value="{{ $class->teacher_id }}" class="form-control" placeholder="teacher id">
+                <select  name="teacher_id">
+                    @foreach ($teachers as $teacher)
+                        @if ($teacher->user_id == $class->teacher_id)
+                            <option value="{{ $teacher->user_id }}" selected>{{ $teacher->user_name}}</option>
+                        @else
+                        <option value="{{ $teacher->user_id }}">{{ $teacher->user_name}}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

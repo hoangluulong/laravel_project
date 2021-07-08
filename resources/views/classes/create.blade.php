@@ -36,7 +36,12 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Teacher id:</strong>
-                <input type="text" name="teacher_id" class="form-control" placeholder="teacher id">
+                <select  name="teacher_id">
+                        <option selected></option>
+                    @foreach ($teachers as $teacher)
+                        <option value="{{ $teacher->user_id }}">{{ $teacher->user_name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
