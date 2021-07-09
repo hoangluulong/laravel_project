@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>List course</h2>
+                <h2>Search course</h2>
             </div>
         </div>
     </div>
