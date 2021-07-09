@@ -17,7 +17,7 @@ class ClassesUsersSeeder extends Seeder
     {
         for ($i=0; $i < 20; $i++) { 
             DB::table('classes_users')->insert([
-                'user_id' => mt_rand(1, 20),
+                'user_id' => mt_rand(26,30),
                 'class_id' => mt_rand(1, 20),
                 'status' => 1,
             ]);

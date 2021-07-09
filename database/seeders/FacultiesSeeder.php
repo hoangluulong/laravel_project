@@ -17,11 +17,23 @@ class FacultiesSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 20; $i++) { 
+        
             DB::table('faculties')->insert([
-                'faculty_name' => Str::random(10),
+                'faculty_name' => "Khoa công nghệ thông tin",
                 'status' => 1,
             ]);
-        }
+            DB::table('faculties')->insert([
+                'faculty_name' => "Khoa tiềng hàn",
+                'status' => 1,
+            ]);
+            DB::table('faculties')->insert([
+                'faculty_name' => "Khoa tiềng nhật",
+                'status' => 1,
+            ]);
+            DB::table('faculties')->insert([
+                'faculty_name' => "Khoa tiềng anh",
+                'status' => 1,
+            ]);
+        
     }
 }
