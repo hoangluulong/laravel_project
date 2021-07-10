@@ -19,8 +19,8 @@ class CoursesSeeder extends Seeder
 
         for ($i=0; $i < 20; $i++) { 
             DB::table('courses')->insert([
-                'course_name' => 'Hoc ky'.$ran[mt_Rand(0, count($ran) - 1)],
-                'course_semester' => mt_rand(16,21),
+                'course_name' => 'Name '.mt_rand(16,21),
+                'course_semester' => 'Hoc ky'.$ran[mt_Rand(0, count($ran) - 1)],
                 'course_year' => mt_rand(2016, 2021),
                 'status' => 1,
             ]);

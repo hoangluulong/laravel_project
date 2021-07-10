@@ -8,10 +8,6 @@
             </div>
         </div>
     </div>
-
-    
-
-
 <div class="menu-search">
     <a class="btn btn-primary" href="{{ route('courses.index') }}"> Back</a>
     <form class="form-inline" action="{{ route('searchcoursesubjects') }}" method="get">

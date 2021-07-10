@@ -70,7 +70,11 @@ class CourseSubjectController extends Controller
         $courseSubjectModel = new CourseSubject();
         $course_subject = $courseSubjectModel->searchCourseSubject($request->search, $request->search_id);
         $size = count($course_subject);
-        return view('coursesubjects.search',['coursesubjects' => $course_subject, 'size' => $size, 'value' => $request->search, 'table' => $request->search_id])
+        return view('coursesubjects.search',[
+            'coursesubjects' => $course_subject, 
+            'size' => $size, 'value' => $request->search, 
+            'table' => $request->search_id
+            ])
             ->with('i',(request()->input('page', 1) - 1) * 5);
     }
 
@@ -88,7 +92,11 @@ class CourseSubjectController extends Controller
         $subjectModel = new Subject();
         $subjects =  $subjectModel->AllSubject();
 
-        return view('coursesubjects.edit',['coursesubject' => $coursesubject, 'courses' => $courses, 'subjects' => $subjects]);
+        return view('coursesubjects.edit',[
+            'coursesubject' => $coursesubject, 
+            'courses' => $courses, 
+            'subjects' => $subjects
+        ]);
     }
 
     /**
@@ -121,7 +129,7 @@ class CourseSubjectController extends Controller
     public function destroy(CourseSubject $coursesubject)
     {
         $coursesubject->delete();
-    
+        
         return redirect()->route('coursesubjects.index')
                         ->with('success','Class deleted successfully');
     }

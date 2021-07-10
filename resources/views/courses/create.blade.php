@@ -33,13 +33,18 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Course semester:</strong>
-                <input type="text" name="course_semester" class="form-control" placeholder="Course semester">
+                <select  name="course_semester" class="selected">
+                <option selected></option>
+                    <option value="Hoc ky1">Học kỳ 1</option>
+                    <option value="Hoc ky2">Học kỳ 2</option>
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                     <strong>Course year:</strong>
                     <select  name="course_year" class="selected">
+                    <option selected></option>
                         @foreach ($years as $year)
                             <option value="{{ $year }}">{{ $year }}</option>
                         @endforeach

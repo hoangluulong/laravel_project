@@ -35,6 +35,7 @@
             <th>course_name</th>
             <th>course_semester</th>
             <th>course_year</th>
+            <th>status</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($courses as $course)
@@ -43,6 +44,7 @@
             <td>{{ $course->course_name }}</td>
             <td>{{ $course->course_semester }}</td>
             <td>{{ $course->course_year }}</td>
+            <td>{{ $course->status }}</td>
             <td>
             
                 <form action="{{ route('courses.destroy',$course->course_id) }}" method="POST">

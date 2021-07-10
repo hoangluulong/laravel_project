@@ -58,7 +58,6 @@
     </tr>
     @endforeach
 </table>
-  
-    {!! $coursesubjects->links() !!}
+{!! $coursesubjects->links() !!}
       
 @endsection

@@ -42,5 +42,4 @@
     </div>
    
 </form>
-<!-- 'course_name', 'course_semester', 'course_year', 'status' -->
 @endsection

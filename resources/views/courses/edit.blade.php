@@ -34,8 +34,16 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Course semester</strong>
-                    <input type="text" name="course_semester" value="{{ $course->course_semester }}" class="form-control" placeholder="Course semester">
+                    <strong>Course semester: </strong>
+                    <select  name="course_semester" class="selected">
+                            @if ($course->course_semester === "Hoc ky1")
+                                <option value="Hoc ky1" selected>Hoc ky1</option>
+                                <option value="	Hoc ky2">	Hoc ky2</option>
+                            @else
+                                <option value="	Hoc ky2" selected>Hoc ky2</option>
+                                <option value="Hoc ky1">Học kỳ 1</option>
+                            @endif
+                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
